@@ -16,8 +16,8 @@ def upload_file():
         filename = secure_filename(file.filename)
         file.save(os.path.join(app.config['UPLOAD'], filename))
         img = os.path.join(app.config['UPLOAD'], filename)
-        return render_template('image_render.html', img=img)
-    return render_template('image_render.html')
+        return render_template('products.html', img=img)
+    return render_template('home.html')
  
  
 if __name__ == '__main__':
