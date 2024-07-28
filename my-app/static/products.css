@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 /* Global Styles */
 body {
   background-color: rgb(248, 229, 229);
