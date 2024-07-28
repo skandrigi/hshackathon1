@@ -23,7 +23,7 @@ def upload_file():
         file = form.file.data
         file.save(os.path.join('./uploads', secure_filename(file.filename))) # Then save the file
         # results holds whether it is curly hair or straight hair
-        result = model.learn.predict(file.filename)[0]
+        result = model.learn.predict('uploads/' + file.filename)[0]
         if result == 'curly hair':
             return render_template('curly.html', result=result)
         elif result == 'straight hair':
