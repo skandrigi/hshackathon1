@@ -1,13 +1,7 @@
-html {
+/* Global Styles */
+html, body {
   height: 100%;
   width: 100%;
-}
-
-body {
-  background-color: rgb(248, 229, 229);
-  display:flex;
-  justify-content: center;
-  align-items: center;
   margin: 0;
   font-family: "Rubik", sans-serif;
   font-optical-sizing: auto;
@@ -15,12 +9,19 @@ body {
   font-style: normal;
 }
 
+body {
+  background-color: rgb(248, 229, 229);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container Styles */
 .container {
   height: 90vh;
   width: 50vw;
   margin-top: 20px;
-  background-color: rgba(250, 37, 94, .9);
-  /* border: 10px solid #C39EA0; */
+  background-color: rgba(250, 37, 94, 0.9);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
   border-radius: 30px;
   display: flex;
@@ -28,30 +29,36 @@ body {
   align-items: center;
   padding: 10px;
   gap: 20px;
+  box-sizing: border-box; /* Add this to include padding in the width calculation */
 }
 
+/* Typography */
 h1 {
   color: white;
   font-size: 36px;
+  text-align: center; /* Ensure text is centered */
+  width: 100%; /* Make the h1 take full width of its container */
+  margin: 0; /* Remove default margins */
+  padding: 10px 0; /* Add some vertical padding */
 }
 
 p {
   color: white;
+  text-align: center; /* Center all paragraph text */
+  width: 100%; /* Make paragraphs take full width */
+  margin: 0; /* Remove default margins */
+  padding: 5px 0; /* Add some vertical padding */
 }
 
+/* Form Styles */
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%; /* Make form take full width */
 }
 
-.image-preview {
-  object-fit: cover;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-}
-
+/* Image Preview Styles */
 #img-preview {
   width: 50vw;
   height: 40vh;
@@ -60,21 +67,28 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 100%; /* Ensure it doesn't overflow the container */
 }
-
-
 
 #img-preview input {
   margin-left: 40px;
 }
 
+.image-preview {
+  object-fit: cover;
+  overflow: hidden;
+  width: 100%;
+  height: 100%; 
+}
+
+/* File Upload Styles */
 #img-upload {
   display: none;
 }
 
-#img-upload-label{
+#img-upload-label {
   display: inline-block;
-  background-color: rgba(250, 37, 94, .9);
+  background-color: rgba(250, 37, 94, 0.9);
   color: white;
   padding: 0.5rem;
   font-family: sans-serif;
@@ -83,9 +97,10 @@ form {
   margin-top: 1rem;
 }
 
+/* Submit Button Styles */
 #submitButton {
   background-color: #F8E5E5;
-  color: #000000 ;
+  color: #000000;
   border: none;
   border-radius: 20px;
   height: 50px;
@@ -94,20 +109,19 @@ form {
   cursor: pointer;
   box-shadow: 0 0 10px #bbb9b9;
   margin-top: 50px;
+  max-width: 100%; /* Ensure it doesn't overflow the container */
 }
 
 #submitButton:hover {
   background-color: #fddddd;
 }
 
+/* Media Queries */
 @media screen and (max-width: 900px) {
-  .container {
+  .container, #img-preview {
     width: 80vw;
   }
-  #img-preview {
-    width: 80vw;
-  }
-  #submit {
+  #submitButton {
     width: 300px;
   }
 }
@@ -115,12 +129,18 @@ form {
 @media screen and (max-width: 500px) {
   .container {
     width: 90vw;
-    gap: 0;
+    gap: 10px; /* Reduce gap for smaller screens */
+    padding: 10px; /* Ensure consistent padding */
   }
   #img-preview {
-    width: 90vw;
+    width: 100%; /* Make it full width of the container */
+    height: 30vh; /* Reduce height for smaller screens */
   }
-  #submit {
-    width: 150px;
+  #submitButton {
+    width: 80%; /* Make button responsive */
+    max-width: 250px; /* Set a max-width for larger screens */
+  }
+  h1 {
+    font-size: 28px; /* Reduce font size for smaller screens */
   }
 }
